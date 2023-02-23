@@ -56,11 +56,18 @@ namespace Ob1Opg4.Controllers
                 Car carCreated = _repo.AddCar(newCar);
                 return Created($"api/cars/{carCreated.Id}", newCar);
             }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return BadRequest(ex.Message);
+            }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }
-            //BURDE være mere? spørg de andre.  Eller skal der ikke være try-catch på nolge?
         }
 
         // PUT api/<CarsController>/5
@@ -79,10 +86,18 @@ namespace Ob1Opg4.Controllers
                 }
                 return Ok(carUpdate);
             }
-            catch(ArgumentException ex)
+            catch(ArgumentNullException ex)
             {
                 return BadRequest(ex.Message);
             }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch(ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            } 
         }
 
         // DELETE api/<CarsController>/5

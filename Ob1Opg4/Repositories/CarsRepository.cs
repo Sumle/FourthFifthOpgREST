@@ -12,9 +12,9 @@ namespace Ob1Opg4.Repositories
             _nextID = 1;
             _cars = new List<Car>()
             {
-                new Car() {Id = _nextID++, Model = "Pikachu", Price = 9999, License = "fssghj"},
-                new Car() {Id = _nextID++, Model = "Charmander", Price = 1000, License = "sdgvwfe"},
-                new Car() {Id = _nextID++, Model = "Arbok", Price = 20, License = "jshdoc"}
+                new Car() {Id = _nextID++, Model = "BMW", Price = 1000, License = "fssghj"},
+                new Car() {Id = _nextID++, Model = "Mustang", Price = 2000, License = "sdgvwfe"},
+                new Car() {Id = _nextID++, Model = "Audi", Price = 5000, License = "jshdoc"}
             };
         }
 
@@ -27,7 +27,7 @@ namespace Ob1Opg4.Repositories
         {
             newCar.Id = _nextID++;
             _cars.Add(newCar);
-            //newCar.Validate();
+            newCar.Validate();
             return newCar;
         }
 
@@ -46,7 +46,7 @@ namespace Ob1Opg4.Repositories
 
         public Car? UpdateCar(int id, Car update)
         {
-            //update.Validate();
+            update.Validate();
             Car? upCar = GetById(id);
             if (upCar == null)
             {
