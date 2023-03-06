@@ -13,7 +13,7 @@ namespace Ob1Opg4.Repositories.Tests
     public class CarsRepositoryTests
     {
         CarsRepository repository = new CarsRepository();
-        Car car = new Car() {Id = 1, Model = "BMW", Price = 1000, License = "fdtgcjs"};
+        Car car = new Car() {Id = 1, Model = "Mustang", Price = 1000, License = "fdtgcjs"};
 
         [TestMethod()]
         public void CarsRepositoryTest()
@@ -28,7 +28,7 @@ namespace Ob1Opg4.Repositories.Tests
             Assert.IsNotInstanceOfType(cars, typeof(Car));
             Assert.AreEqual(cars.Count, 3);
             Assert.AreEqual(cars[0].Id, 1);
-            Assert.AreEqual(cars[0].Model, "BMW");
+            Assert.AreEqual(cars[1].Model, "Mustang");
             Assert.IsNotNull(cars);
             var idSet = new HashSet<int>();
             foreach (var c in cars)
@@ -70,7 +70,7 @@ namespace Ob1Opg4.Repositories.Tests
         public void UpdateCarTest()
         {
             repository.UpdateCar(2, car);
-            Assert.AreEqual("BMW", repository.GetById(2).Model);
+            Assert.AreEqual("Mustang", repository.GetById(2).Model);
             
         }
     }
