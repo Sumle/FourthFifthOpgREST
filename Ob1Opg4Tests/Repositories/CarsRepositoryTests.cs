@@ -63,15 +63,15 @@ namespace Ob1Opg4.Repositories.Tests
             List<Car> cars = repository.GetAll();
             Assert.AreEqual(2, cars.Count);
             Car? deleteCar = repository.GetById(2);
-            Assert.IsNotNull(2, deleteCar?.Model);
+            Assert.IsNull(repository.GetById(2));
         }
 
         [TestMethod()]
         public void UpdateCarTest()
         {
             repository.UpdateCar(2, car);
-            Car? updateCar = repository.GetById(2);
-            Assert.AreEqual(car.Model, updateCar?.Model);
+            Assert.AreEqual("BMW", repository.GetById(2).Model);
+            
         }
     }
 }
